@@ -2,14 +2,8 @@ import React, {useRef } from 'react'
 import ReactDom from "react-dom"
 
 const Create = ({ setShowModal }) => {
-  const modalRef = useRef()
-  const closeModal = (e) => {
-    if (e.target === modalRef.current) {
-      setShowModal(false)
-    }
-  };
     return ReactDom.createPortal(
-      <form ref={modalRef} onClick={closeModal}>
+      <form >
         <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
