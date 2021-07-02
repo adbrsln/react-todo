@@ -18,13 +18,13 @@ const Create = ({ setShowModal }) => {
                         <div>
                         <label for="title" className="mb-2 block text-sm font-medium text-gray-700">Title</label>
                         <div className="mt-1">
-                            <input type="text" name="title" id="title" className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="write something here" />
+                            <input type="text" name={title} onChange={this.handleChange} id="title" className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="write something here" />
                         </div>
                         </div>
                         <div className="mt-4">
                         <label for="content" className="mb-2 block text-sm font-medium text-gray-700">Content</label>
                         <div>
-                            <textarea id="content" name="content" rows="5" className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
+                            <textarea id="content" name={content} onChange={this.handleChange} rows="5" className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"></textarea>
                         </div>
                         </div>
                     </div>
@@ -38,7 +38,15 @@ const Create = ({ setShowModal }) => {
             </div>
         </div>
       </form>,
-    document.getElementById("portal"));
+    document.getElementById("portal"))
+
+    handleChange = (event) => {
+      const {name, value} = event.target
+    
+      this.setState({
+        [name]: value,
+      })
+    }
 }
 
 export default Create;

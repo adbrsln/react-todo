@@ -34,8 +34,4 @@ const CardContent = (props) => {
     return  <ul className="divide-y divide-gray-200">{rows}</ul>
 }
 
-const ShowCard = (props) => {
-    
-}
-
 export default Card
