@@ -1,9 +1,23 @@
-import React from 'react'
-import ReactDom from "react-dom"
+import React, {Component} from 'react'
 
-const Create = ({ setShowModal }) => {
-    return ReactDom.createPortal(
-      <form >
+class Form extends Component {
+  setShowModal = ''
+  constructor(props) {
+      super(props)
+      this.setShowModal = props.setShowModal
+  }
+  initialState = {
+    title: '',
+    content: '',
+  }
+
+  state = this.initialState
+  
+  render() {
+    const { title, content } = this.state;
+  
+    return (
+        <form id="form" >
         <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                 <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
@@ -32,21 +46,25 @@ const Create = ({ setShowModal }) => {
                 </div>
                 <div className="mt-5 sm:mt-6 sm:grid sm:grid-cols-2 sm:gap-3 sm:grid-flow-row-dense">
                     <button type="button"  className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:col-start-2 sm:text-sm">Add Todo</button>
-                    <button type="button" onClick={() => setShowModal(false)} className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:col-start-1 sm:text-sm">Cancel</button>
+                    <button type="button" onClick={() => this.setShowModal(false)} className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:col-start-1 sm:text-sm">Cancel</button>
                 </div>
                 </div>
             </div>
         </div>
-      </form>,
-    document.getElementById("portal"))
-
-    handleChange = (event) => {
-      const {name, value} = event.target
-    
-      this.setState({
-        [name]: value,
-      })
-    }
+      </form>
+    );
+  }
+  handleChange = (event) => {
+    const {name, value} = event.target
+  
+    this.setState({
+      [name]: value,
+    })
+  }
+  submitForm = () => {
+    this.props.handleSubmit(this.state)
+    this.setState(this.initialState)
+  }
 }
 
-export default Create;
+export default Form;
