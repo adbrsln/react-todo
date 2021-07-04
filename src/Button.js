@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Create from "./Create";
 
-function Button() {
+function Button(props) {
   const [showModal, setShowModal] = useState(false);
 
-const openModal = () => {
+  const openModal = () => {
     setShowModal(true);
   };
   
@@ -16,7 +16,7 @@ const openModal = () => {
             </svg>
             Add New
         </button>
-        {showModal ? <Create setShowModal={setShowModal} /> : null}
+        {showModal ? <Create setShowModal={setShowModal} handleSubmit={props.handleSubmit} /> : null}
    </div>
   );
 }

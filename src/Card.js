@@ -9,16 +9,17 @@ const Card = (props) => {
             </div>
         </div>
     )
+    
 }
 
 const CardContent = (props) => {
     const rows = props.todoData.map((row, index) => {
         return (
             <li key={index}>
-                <a href="#" className="block hover:bg-gray-50">
+                <div className="block hover:bg-gray-50">
                     <div className="px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
-                            <p className="capitalize text-sm text-xl font-bold text-indigo-500 truncate">{row.title}</p>
+                            <p className="capitalize text-xl font-bold text-indigo-500 truncate">{row.title}</p>
                             <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
                                 <p>
                                     <time datetime="2020-01-07">{row.date}</time>
@@ -27,7 +28,7 @@ const CardContent = (props) => {
                         </div>
                         <div className="mt-2 overflow-ellipsis overflow-hidden">{row.content}</div>
                     </div>
-                </a>
+                </div>
             </li>
         )
     })
