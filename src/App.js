@@ -6,16 +6,7 @@ import Card from './Card'
 class App extends Component {
     
   state = {
-    todos: [{
-        "title" : 'test',
-        "content" : 'lorem ipsum dorlor sit ammet',
-        'date' : '10 February 2021' 
-    },
-    {
-        "title" : 'test',
-        "content" : 'lorem ipsum dorlor sit ammet',
-        'date' : '10 February 2021' 
-    }],
+    todos: [],
   }
   render() {
     
