@@ -58,14 +58,13 @@ class Form extends Component {
 
   handleChange = (event) => {
     const {name, value} = event.target
-  
+    let currentDate = moment().format('DD MMMM YYYY LT')
     this.setState({
       [name]: value,
+      date:currentDate
     })
   }
   submitForm = () => {
-    this.setState({date:moment().format('DD MMMM YYYY LT')})
-    console.log(this.state)
     this.props.handleSubmit(this.state)
     this.setState(this.initialState)
     this.setShowModal(false)
